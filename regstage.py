@@ -187,7 +187,7 @@ print(f'*Оптимальный относительный шаг t1_* = {t1_}')
 z1 = (M.pi*d)/(b_1*t1_)
 z1 = int(z1)
 if z1 % 2 == 0:
-    st.write(f'z1 = {z1}')
+    print(f'z1 = {z1}')
 else:
     z1 = z1+1
     st.write(f'z1 = {z1}')
