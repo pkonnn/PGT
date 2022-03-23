@@ -112,24 +112,24 @@ st.pyplot(ucf_eta)
 st.write(" ")
 d = 1.1
 u = M.pi*d*n
-st.write(f'u = {u:.2f} м/с')
+print(f'u = {u:.2f} м/с')
 point_0 = WSP(P = p_0, T = T_0)
-st.write(f'h_0 = {point_0.h:.2f} кДж/кг')
-st.write(f's_0 = {point_0.s:.4f} кДж/(кг*К)')
+print(f'h_0 = {point_0.h:.2f} кДж/кг')
+print(f's_0 = {point_0.s:.4f} кДж/(кг*К)')
 H_0s = H_0*(1-rho)
 H_0r = H_0*rho
 h_1t = point_0.h - H_0s
-st.write(f'h_1т = {h_1t:.2f} кДж/кг')
+print(f'h_1т = {h_1t:.2f} кДж/кг')
 point_1t = WSP(h = h_1t, s = point_0.s)
 c_1t = (2000*H_0s)**0.5
-st.write(f'c_1т = {c_1t:.2f} м/с')
+print(f'c_1т = {c_1t:.2f} м/с')
 M_1t = c_1t/point_1t.w
-st.write(f'M_1т = {M_1t:.2f}')
+print(f'M_1т = {M_1t:.2f}')
 mu_1 = 0.982 - 0.005*(b_1/l_1)
 F_1 = G_0*point_1t.v/mu_1/c_1t
-st.write(f'F_1 = {F_1:.4f} м^2')
+print(f'F_1 = {F_1:.4f} м^2')
 el_1 = F_1/M.pi/d/M.sin(M.radians(alpha_1))
-st.write(f'el_1 = {el_1:.4f} м')
+print(f'el_1 = {el_1:.4f} м')
 e_opt=6*el_1**0.5
 if e_opt > 0.85:
     e_opt = 0.85
@@ -153,7 +153,7 @@ plt.grid()
 #st.pyplot(hs)
 
 st.write(" ")
-st.write(f'l_1 = {l_1:.4f} м')
+print(f'l_1 = {l_1:.4f} м')
 if alpha_1 <= 10:
     NozzleBlade = 'C-90-09A'
     t1_ = 0.78
@@ -182,8 +182,8 @@ else:
     f1_mod = 2.72
     W1_mod = 0.333
     alpha_inst1 = alpha_1-17.7*(t1_-0.75)+24.2
-st.write('*Тип профиля:*',  NozzleBlade)
-st.write(f'*Оптимальный относительный шаг t1_* = {t1_}')
+print('*Тип профиля:*',  NozzleBlade)
+print(f'*Оптимальный относительный шаг t1_* = {t1_}')
 z1 = (M.pi*d)/(b_1*t1_)
 z1 = int(z1)
 if z1 % 2 == 0:
@@ -199,24 +199,24 @@ k_13 = 13.25474043*t1_**2 - 20.75439502*t1_ + 9.12762245
 Ksi_1 = Ksi_1_*k_11*k_12*k_13
 
 fi_1 = M.sqrt(1-Ksi_1/100)
-st.write(f'mu_1 = {mu_1}')
-st.write(f'fi_1 = {fi_1}')
+print(f'mu_1 = {mu_1}')
+print(f'fi_1 = {fi_1}')
 
 st.write(" ")
 alpha_1 = 12
 c_1 = c_1t*fi_1
-st.write(f'c_1 = {c_1:.2f} м/с')
+print(f'c_1 = {c_1:.2f} м/с')
 alpha_1 = M.degrees(M.asin(mu_1/fi_1*M.sin(M.radians(alpha_1))))
-st.write(f'alpha_1 = {alpha_1:.2f} град.')
+print(f'alpha_1 = {alpha_1:.2f} град.')
 w_1 = (c_1**2+u**2-2*c_1*u*M.cos(M.radians(alpha_1)))**0.5
-st.write(f'w_1 = {w_1:.4f}')
+print(f'w_1 = {w_1:.4f}')
 
 cwu = plt.figure()
 
 c_1u = c_1*M.cos(M.radians(alpha_1))
 c_1a = c_1*M.sin(M.radians(alpha_1))
 w_1u = c_1u - u
-st.write(f'{c_1u:.4f}', f' ;  {w_1u:.4f}')
+print(f'{c_1u:.4f}', f' ;  {w_1u:.4f}')
 w_1_tr = [0, 0, -w_1u, -c_1a]
 c_1_tr = [0, 0, -c_1u, -c_1a]
 u_1_tr = [-w_1u, -c_1a, -u, 0]
@@ -234,28 +234,28 @@ plt.grid()
 
 st.write(" ")
 betta_1 = M.degrees(M.atan(M.sin(M.radians(alpha_1))/(M.cos(M.radians(alpha_1))-u/c_1)))
-st.write(f'betta_1 = {betta_1:.2f}')
+print(f'betta_1 = {betta_1:.2f}')
 Delta_Hs = c_1t**2/2*(1-fi_1**2)
-st.write(f'Delta_Hs = {Delta_Hs:.2f} Дж/кг')
+print(f'Delta_Hs = {Delta_Hs:.2f} Дж/кг')
 
 st.write(" ")
 h_1 = h_1t + Delta_Hs*1e-3
-st.write(f'h_1 = {h_1:.2f} кДж/кг')
+print(f'h_1 = {h_1:.2f} кДж/кг')
 point_1 = WSP(P = point_1t.P, h = h_1)
 h_2t = h_1 - H_0r
-st.write(f'h_2t = {h_2t:.2f} кДж/кг')
+print(f'h_2t = {h_2t:.2f} кДж/кг')
 point_2t = WSP(h = h_2t, s = point_1.s)
 w_2t = (2*H_0r*1e3+w_1**2)**0.5
-st.write(f'w_2t = {w_2t:.2f} м/с')
+print(f'w_2t = {w_2t:.2f} м/с')
 l_2 = l_1 + Delta
 mu_2 = 0.965-0.01*(b_2/l_2)
-st.write(f'mu_2 = {mu_2:.2f}')
+print(f'mu_2 = {mu_2:.2f}')
 M_2t = w_2t/point_2t.w
-st.write(f'M_2t = {M_2t:.2f}')
+print(f'M_2t = {M_2t:.2f}')
 F_2 = G_0*point_2t.v/mu_2/w_2t
-st.write(f'F_2 = {F_2:.2f}')
+print(f'F_2 = {F_2:.2f}')
 betta_2 = M.degrees(M.asin(F_2/(e_opt*M.pi*d*l_2)))
-st.write(f'betta_2 = {betta_2:.2f}')
+print(f'betta_2 = {betta_2:.2f}')
 point_1w = WSP(h = point_1.h+w_1**2/2*1e-3, s = point_1.s)
 fig4 = plt.figure(figsize=(10, 10))
 
@@ -328,11 +328,11 @@ else:
     W2_mod = 0.079
     beta_inst2 = betta_2-20.8*(t2_-0.6)+43.7
 
-st.write('*Тип профиля:*',  RotorBlade)
-st.write(f'*Оптимальный относительный шаг t2_* = {t2_}')
+print('*Тип профиля:*',  RotorBlade)
+print(f'*Оптимальный относительный шаг t2_* = {t2_}')
 
 z2 = int((M.pi*d)/(b_2*t2_))
-st.write(f'z2 = {z2}')
+print(f'z2 = {z2}')
 t2_ = (M.pi*d)/(b_2*z2)
 Ksi_2_ = 4.364*b_2/l_2 + 4.22
 k_21 = -13.79438991*M_2t**4 + 36.69102267*M_2t**3 - 32.78234341*M_2t**2 + 10.61998662*M_2t + 0.28528786
@@ -341,31 +341,31 @@ k_23 = 60.72813684*t2_**2 - 76.38053189*t2_ + 24.97876023
 Ksi_2 = Ksi_2_*k_21*k_22*k_23
 
 psi = M.sqrt(1-Ksi_2/100)
-st.write(f'psi = {psi:.2f}')
+print(f'psi = {psi:.2f}')
 
 st.write(" ")
 psi = 0.91
 
 w_2 = psi*w_2t
-st.write(f'w_2 = {w_2:.2f} м/с')
+print(f'w_2 = {w_2:.2f} м/с')
 c_2 = (w_2**2+u**2-2*u*w_2*M.cos(M.radians(betta_2)))**0.5
-st.write(f'c_2 = {c_2:.2f} м/с')
+print(f'c_2 = {c_2:.2f} м/с')
 alpha_2 = M.degrees(M.atan(M.sin(M.radians(betta_2))/(M.cos(M.radians(betta_2))-u/w_2)))
-st.write(f'alpha_2 = {alpha_2:.2f}')
+print(f'alpha_2 = {alpha_2:.2f}')
 Delta_Hr = w_2t**2/2*(1-psi**2)
-st.write(f'Delta_Hr = {Delta_Hr:.2f} Дж/кг')
+print(f'Delta_Hr = {Delta_Hr:.2f} Дж/кг')
 h_2 = h_2t+Delta_Hr*1e-3
 point_2 = WSP(P = point_2t.P, h = h_2)
 Delta_Hvs = c_2**2/2
-st.write(f'Delta_Hvs = {Delta_Hvs:.2f} Дж/кг')
+print(f'Delta_Hvs = {Delta_Hvs:.2f} Дж/кг')
 E_0 = H_0 - kappa_vs*Delta_Hvs
 etta_ol1 = (E_0*1e3 - Delta_Hs-Delta_Hr-(1-kappa_vs)*Delta_Hvs)/(E_0*1e3)
-st.write(f'1. etta_ol = {etta_ol1}')
+print(f'1. etta_ol = {etta_ol1}')
 etta_ol2 = (u*(c_1*M.cos(M.radians(alpha_1))+c_2*M.cos(M.radians(alpha_2))))/(E_0*1e3)
-st.write(f'2. etta_ol = {etta_ol2}')
+print(f'2. etta_ol = {etta_ol2}')
 
 st.write(" ")
-cw= plt.figure()
+cw = plt.figure()
 
 c_1u = c_1*M.cos(M.radians(alpha_1))
 c_1a = c_1*M.sin(M.radians(alpha_1))
@@ -373,8 +373,8 @@ w_1u = c_1u - u
 w_2a = w_2*M.sin(M.radians(betta_2))
 w_2u = w_2*M.cos(M.radians(betta_2))
 c_2u=w_2u-u
-st.write(f'c_1u = {c_1u}')
-st.write(f'w_1u = {w_1u}')
+print(f'c_1u = {c_1u}')
+print(f'w_1u = {w_1u}')
 w_1_tr = [0, 0, -w_1u, -c_1a]
 c_1_tr = [0, 0, -c_1u, -c_1a]
 u_1_tr = [-w_1u, -c_1a, -u, 0]
@@ -406,13 +406,13 @@ mu_r = 0.75
 d_per = d + l_1
 delta_r = d_per*0.001
 delta_ekv = 1/M.sqrt(1/(mu_a*delta_a)**2+z_per_up/(mu_r*delta_r)**2)
-st.write("""Эквивалентный зазор в уплотнении по бандажу (периферийном) 
+print("""Эквивалентный зазор в уплотнении по бандажу (периферийном) 
             delta_ekv = %.3f мм""" % (delta_ekv*1000))
 xi_u_b=M.pi*d_per*delta_ekv*etta_ol1/F_1*M.sqrt(rho+1.8*l_2/d)
-st.write("""Относительные потери от утечек через бандажные уплотнения 
+print("""Относительные потери от утечек через бандажные уплотнения 
                 xi_u_b = %.3f""" % xi_u_b)
 Delta_Hub = xi_u_b*E_0
-st.write("""Абсолютные потери от утечек через периферийное уплотнение ступени  
+print("""Абсолютные потери от утечек через периферийное уплотнение ступени  
             Delta_Hub = %.3f кДж/кг""" % Delta_Hub)
 
 k_tr=0.0007
@@ -421,9 +421,9 @@ u = M.pi*d*n
 c_f = M.sqrt(2000*H_0)
 ucf = u/c_f
 xi_tr = k_tr*d**2/F_1*ucf**3
-st.write("""Определяем u/c_ф для ступени  
+print("""Определяем u/c_ф для ступени  
             U/c_ф = %.3f""" % ucf)
-st.write("""Относительные потери от трения диска  
+print("""Относительные потери от трения диска  
             xi_tr =  = %.5f""" % xi_tr)
 Delta_Htr = xi_tr*E_0
 print("""Абсолютные потери от трения диска  
