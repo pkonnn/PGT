@@ -103,6 +103,7 @@ for i in d:
 ucf_eta = plt.figure()
 
 plt.plot(ucf, eta)
+plt.title("Зависимость ηo.л от u/cf")
 plt.xlabel("u/cf")
 plt.ylabel("ηo.л")
 plt.grid()
@@ -190,7 +191,7 @@ if z1 % 2 == 0:
     print(f'z1 = {z1}')
 else:
     z1 = z1+1
-    st.write(f'z1 = {z1}')
+    print(f'z1 = {z1}')
 t1_ = (M.pi*d)/(b_1*z1)
 Ksi_1_ = (0.021042*b_1/l_1 + 0.023345)*100
 k_11 = 7.18977510*M_1t**5 - 26.94497258*M_1t**4 + 39.35681781*M_1t**3 - 26.09044664*M_1t**2 + 6.75424811*M_1t + 0.69896998
