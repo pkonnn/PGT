@@ -259,13 +259,26 @@ betta_2 = M.degrees(M.asin(F_2/(e_opt*M.pi*d*l_2)))
 print(f'betta_2 = {betta_2:.2f}')
 point_1w = WSP(h = point_1.h+w_1**2/2*1e-3, s = point_1.s)
 fig4 = plt.figure(figsize=(10, 10))
+psi = 0.91
+
+w_2 = psi*w_2t
+print(f'w_2 = {w_2:.2f} м/с')
+c_2 = (w_2**2+u**2-2*u*w_2*M.cos(M.radians(betta_2)))**0.5
+print(f'c_2 = {c_2:.2f} м/с')
+alpha_2 = M.degrees(M.atan(M.sin(M.radians(betta_2))/(M.cos(M.radians(betta_2))-u/w_2)))
+print(f'alpha_2 = {alpha_2:.2f}')
 Delta_Hr = w_2t**2/2*(1-psi**2)
+print(f'Delta_Hr = {Delta_Hr:.2f} Дж/кг')
 h_2 = h_2t+Delta_Hr*1e-3
-point_2 = IAPWS97(P = point_2t.P, h = h_2)
+point_2 = WSP(P = point_2t.P, h = h_2)
 Delta_Hvs = c_2**2/2
+print(f'Delta_Hvs = {Delta_Hvs:.2f} Дж/кг')
 E_0 = H_0 - kappa_vs*Delta_Hvs
 etta_ol1 = (E_0*1e3 - Delta_Hs-Delta_Hr-(1-kappa_vs)*Delta_Hvs)/(E_0*1e3)
+print(f'1. etta_ol = {etta_ol1}')
 etta_ol2 = (u*(c_1*M.cos(M.radians(alpha_1))+c_2*M.cos(M.radians(alpha_2))))/(E_0*1e3)
+print(f'2. etta_ol = {etta_ol2}')
+
 
 h_3 = h_2 + Delta_Hvs * 1e-3
 point_3 = IAPWS97(P=point_2t.P, h=h_3)
@@ -358,26 +371,7 @@ Ksi_2 = Ksi_2_*k_21*k_22*k_23
 psi = M.sqrt(1-Ksi_2/100)
 print(f'psi = {psi:.2f}')
 
-st.write(" ")
-psi = 0.91
 
-w_2 = psi*w_2t
-print(f'w_2 = {w_2:.2f} м/с')
-c_2 = (w_2**2+u**2-2*u*w_2*M.cos(M.radians(betta_2)))**0.5
-print(f'c_2 = {c_2:.2f} м/с')
-alpha_2 = M.degrees(M.atan(M.sin(M.radians(betta_2))/(M.cos(M.radians(betta_2))-u/w_2)))
-print(f'alpha_2 = {alpha_2:.2f}')
-Delta_Hr = w_2t**2/2*(1-psi**2)
-print(f'Delta_Hr = {Delta_Hr:.2f} Дж/кг')
-h_2 = h_2t+Delta_Hr*1e-3
-point_2 = WSP(P = point_2t.P, h = h_2)
-Delta_Hvs = c_2**2/2
-print(f'Delta_Hvs = {Delta_Hvs:.2f} Дж/кг')
-E_0 = H_0 - kappa_vs*Delta_Hvs
-etta_ol1 = (E_0*1e3 - Delta_Hs-Delta_Hr-(1-kappa_vs)*Delta_Hvs)/(E_0*1e3)
-print(f'1. etta_ol = {etta_ol1}')
-etta_ol2 = (u*(c_1*M.cos(M.radians(alpha_1))+c_2*M.cos(M.radians(alpha_2))))/(E_0*1e3)
-print(f'2. etta_ol = {etta_ol2}')
 
 st.write(" ")
 cw = plt.figure()
