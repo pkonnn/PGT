@@ -259,6 +259,18 @@ betta_2 = M.degrees(M.asin(F_2/(e_opt*M.pi*d*l_2)))
 print(f'betta_2 = {betta_2:.2f}')
 point_1w = WSP(h = point_1.h+w_1**2/2*1e-3, s = point_1.s)
 fig4 = plt.figure(figsize=(10, 10))
+Delta_Hr = w_2t**2/2*(1-psi**2)
+h_2 = h_2t+Delta_Hr*1e-3
+point_2 = IAPWS97(P = point_2t.P, h = h_2)
+Delta_Hvs = c_2**2/2
+E_0 = H_0 - kappa_vs*Delta_Hvs
+etta_ol1 = (E_0*1e3 - Delta_Hs-Delta_Hr-(1-kappa_vs)*Delta_Hvs)/(E_0*1e3)
+etta_ol2 = (u*(c_1*M.cos(M.radians(alpha_1))+c_2*M.cos(M.radians(alpha_2))))/(E_0*1e3)
+
+h_3 = h_2 + Delta_Hvs * 1e-3
+point_3 = IAPWS97(P=point_2t.P, h=h_3)
+
+point_2_ = IAPWS97(P=point_2t.P, h=point_0.h-H_0)
 
 hsstage = plt.figure()
 
@@ -267,6 +279,8 @@ def plot_hs_stage_t(x_lim,y_lim):
     plt.plot([point_0.s,point_1.s],[point_0.h,point_1.h],'bo-')
     plt.plot([point_1.s,point_2t.s],[point_1.h,point_2t.h], 'ro-')
     plt.plot([point_1.s,point_1.s],[point_1w.h, point_1.h],'ro-')
+    plt.plot([point_1.s, point_2.s], [point_1.h, point_2.h], 'bo-')
+    plt.plot([point_2.s, point_3.s], [point_2.h, point_3.h], 'bo-')
     iso_bar(point_2t,-0.02,0.02,0.001,'y')
     iso_bar(point_1w,-0.005,0.005,0.001,'c')
 plot_hs_stage_t([6.55,6.65],[3300,3500])
