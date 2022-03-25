@@ -364,9 +364,8 @@ if page == "Задание 1":
 
 if page == "Задание 2":
 
-    st.title('Курсовая работа ')
-    st.write('_Расчет регулирующей ступени_')
-    st.subheader('Конюхова П.O. ФПэ-01-19 Вариант 6')
+    
+    st.subheader('_Расчет регулирующей ступени_')
 
 
     def iso_bar(wsp_point, min_s=-0.1, max_s=0.11, step_s=0.011, color = 'r'):
