@@ -821,7 +821,7 @@ if page == "Задание 2":
                 N_i = %.2f кВт""" % N_i)
     
     
-if page == "Задание 1":
+if page == "Задание 3":
     
     st.subheader('_Расчет регулирующей ступени_')
 
@@ -830,18 +830,18 @@ if page == "Задание 1":
 
     drs = st.number_input('d, м', value = 1.1)
     P0 = st.number_input('P0, МПа', value = 13.1)
-    h0 = st.number_input('h0, кДж/кг', value = 3367.29)
+    h0 = st.number_input('h0, кДж/кг', value = 3465.1)
     n = st.number_input('n, Гц', value = 50)
     G0  = st.number_input('G_0, кг/с', value = 176.3289)
     rho_s  = st.number_input('rho', value = 0.05)
     etaoi = st.number_input('etaoi', value = 0.88)
     alfa = st.number_input('alpha, град', value = 12)
-    fi = st.number_input('fi', value = 0.9631
+    fi = st.number_input('fi', value = 0.96
     delta = st.number_input('Delta, м', value = 0.003)
     mu1 = st.number_input('mu1', value = 0.9688)
-    tetta = st.number_input('mu1', value = 20)
+    tetta = st.number_input('tetta', value = 20)
     Z = st.number_input('Z', value=7)
-    Pz = 2.739
+    Pz = 4.4
     deltaD = 0.26
     error = 2
     i = 1
