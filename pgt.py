@@ -976,8 +976,7 @@ if page == "Задание 3":
     Hi_ = [float(x) for x in Hi_]
     Hdi_ = [float(x) for x in Hdi_]
 
-    ##
-    Таблица
+    ## Таблица
     table=pd.DataFrame( {"№ ступени": (N_),
                             "di, м": (di_),
                             "li, м": (li_),
