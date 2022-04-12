@@ -5,6 +5,8 @@ from iapws import IAPWS97
 from iapws import IAPWS97 as WSP
 import numpy as np
 import math as M
+from SymPy import *
+from IPython.display import HTML, display
 
 st.title('Курсовая работа ')
 st.subheader('Конюхова П.O. ФПэ-01-19 Вариант 6 ')
