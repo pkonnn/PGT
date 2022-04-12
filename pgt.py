@@ -5,7 +5,7 @@ from iapws import IAPWS97
 from iapws import IAPWS97 as WSP
 import numpy as np
 import math as M
-from SymPy import *
+from sympy import *
 from IPython.display import HTML, display
 
 st.title('Курсовая работа ')
