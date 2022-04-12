@@ -11,11 +11,11 @@ from IPython.display import HTML, display
 st.title('Курсовая работа ')
 st.subheader('Конюхова П.O. ФПэ-01-19 Вариант 6 ')
 
-page = st.sidebar.selectbox(
+add_selectbox = st.sidebar.selectbox(
     "Выберите задание",
     ("Задание 1", "Задание 2", "Задание 3"))
 
-if page == "Задание 1":
+if add_selectbox == "Задание 1":
  
     st.caption('Ne = 218 МВт')
     st.caption('p0 = 13.1 МПа')
