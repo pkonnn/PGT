@@ -388,18 +388,24 @@ if add_selectbox == "Задание 2":
     st.write("**Исходные данные:** ")
 
     d = st.number_input('d, м', value = 1.1)
-    p_0 = st.number_input('P0, МПа', value = 13.1)
-    T_0 = st.number_input('T0, K', value = 821.15)
-    n = st.number_input('n, Гц', value = 50)
-    G_0 = st.number_input('G_0, кг/с', value = 176.3289)
-    H_0 = st.number_input('H_0, кДж/кг', value = 110)
-    rho = st.number_input('rho', value = 0.05)
-    l_1 = st.number_input('l_1, м', value = 0.015 )
-    alpha_1 = st.number_input('alpha_1, град', value = 12)
-    b_1 = st.number_input('b_1, м', value = 0.06)
-    Delta = st.number_input('Delta, м', value = 0.003)
-    b_2 = st.number_input('b_2, м', value = 0.03 )
-    kappa_vs = st.number_input('kappa_vs', value = 0)
+    st.caption('p0 = 13.1 МПа')
+    st.caption('T0 = 821.15 K')
+    st.caption('G_0 = 176.3289 кг/с')
+    st.caption('H_0 = 110 кДж/кг')
+   
+    
+    p_0 = 13.1
+    T_0 = 821.15
+    n = 50
+    G_0 = 176.3289
+    H_0 = 110
+    rho = 0.05
+    l_1 = 0.015
+    alpha_1 = 12
+    b_1 = 0.06
+    Delta = 0.003
+    b_2 = 0.03
+    kappa_vs = 0
 
     st.write(" ")
     st.write("**Решение:** ")
