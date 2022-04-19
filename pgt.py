@@ -17,6 +17,7 @@ add_selectbox = st.sidebar.selectbox(
 
 if add_selectbox == "Задание 1":
  
+    st.write("**Исходные данные:** ")
     st.caption('Ne = 218 МВт')
     st.caption('p0 = 13.1 МПа')
     st.caption('t0 = 548 C')
@@ -360,6 +361,9 @@ if add_selectbox == "Задание 1":
     plt.ylabel("h, кДж/кг")
     plt.grid(True)
     st.pyplot(fig)
+    
+    st.write (p_0_d*1e-6)
+    st.write (point_0.h)
 
 
 
@@ -825,10 +829,7 @@ if add_selectbox == "Задание 2":
     
 if add_selectbox == "Задание 3":
     
-    st.subheader('_Расчет количества нерегулируемых ступеней ЦВД и их теплоперепадов_')
-
-    st.write("# Задание 3")
-
+    st.write('_Расчет количества нерегулируемых ступеней ЦВД и их теплоперепадов_')
     st.write(" ")
     st.write("**Исходные данные:** ")
 
@@ -841,7 +842,9 @@ if add_selectbox == "Задание 3":
     Z = st.number_input('Введите количество ступеней ЦВД ', value=8)
     Pz = st.number_input('Введите давление за ЦВД, МПа ', value=4.4)
 
-
+    
+    P0 = 24.2
+    h0 = 
     deltaD = 0.26 #m
     n = 50 # Гц
     rho_s = 0.05
@@ -948,7 +951,7 @@ if add_selectbox == "Задание 3":
         a += 1
 
 
-    ## Добавлено для таблицы
+    
     N_=[]
     di_=[]
     li_=[]
