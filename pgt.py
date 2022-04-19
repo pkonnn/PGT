@@ -231,7 +231,6 @@ if add_selectbox == "Задание 1":
         T_1 = point_1.T
         v_1 = point_1.v
         p_1 = point_1.P
-        st.write(p_1)
         p_pp_ = p_pp - 0.03*p_pp
         point_pp_ = IAPWS97(P=p_pp_*10**(-6),h = h_pp)
         s_pp_ = point_pp_.s
@@ -840,15 +839,16 @@ if add_selectbox == "Задание 3":
     st.caption('p0 = 12.445 МПа')
     st.caption('h0 = 3465.095 кДж/кг')
     st.caption('G0 = 176.3289 кг/с')
-    st.caption('pz = 12.445 МПа')
+    st.caption('pz = 2.739 МПа')
+    st.caption('etaoi = 0.748')
     st.caption('Количество ступеней ЦВД = 7')
     
    
     P0 = 12.445
     h0 = 3465.095
     G0 = 176.3289
-    etaoi = 0.88
-    Pz = 10
+    etaoi = 0.748
+    Pz = 2.739
     Z = 7
     deltaD = 0.26 #m
     n = 50 # Гц
@@ -988,7 +988,7 @@ if add_selectbox == "Задание 3":
     ax = fig.gca()
     ax.set_xticks(np.arange(1, 15, 1))
     plt.grid(True)
-    plt.plot(z, di_, '-ro')
+    plt.plot(z, di_, '-ob')
     plt.title('Рисунок 1. Распределение средних диаметров по проточной части')
     st.pyplot(fig)
 
@@ -997,7 +997,7 @@ if add_selectbox == "Задание 3":
     ax = fig.gca()
     ax.set_xticks(np.arange(1, 15, 1))
     plt.grid(True)
-    plt.plot(z, li_, '-ro')
+    plt.plot(z, li_, '-ob')
     plt.title('Рисунок 2. Распределение высот лопаток по проточной части')
     st.pyplot(fig)
 
@@ -1006,7 +1006,7 @@ if add_selectbox == "Задание 3":
     ax = fig.gca()
     ax.set_xticks(np.arange(1, 15, 1))
     plt.grid(True)
-    plt.plot(z, tettai_, '-ro')
+    plt.plot(z, tettai_, '-ob')
     plt.title('Рисунок 3. Распределение обратной веерности по проточной части')
     st.pyplot(fig)
 
@@ -1015,7 +1015,7 @@ if add_selectbox == "Задание 3":
     ax = fig.gca()
     ax.set_xticks(np.arange(1, 15, 1))
     plt.grid(True)
-    plt.plot(z, rhoi_, '-ro')
+    plt.plot(z, rhoi_, '-ob')
     plt.title('Рисунок 4. Распределение степени реактивности по проточной части')
     st.pyplot(fig)
 
@@ -1024,7 +1024,7 @@ if add_selectbox == "Задание 3":
     ax = fig.gca()
     ax.set_xticks(np.arange(1, 15, 1))
     plt.grid(True)
-    plt.plot(z, Xi_, '-ro')
+    plt.plot(z, Xi_, '-ob')
     plt.title('Рисунок 5. Распределение U/Cф по проточной части')
     st.pyplot(fig)
 
@@ -1033,7 +1033,7 @@ if add_selectbox == "Задание 3":
     ax = fig.gca()
     ax.set_xticks(np.arange(1, 15, 1))
     plt.grid(True)
-    plt.plot(z, Hi_, '-ro')
+    plt.plot(z, Hi_, '-ob')
     plt.title('Рисунок 6. Распределение теплоперепадов по проточной части')
     st.pyplot(fig)
 
@@ -1042,6 +1042,6 @@ if add_selectbox == "Задание 3":
     ax = fig.gca()
     ax.set_xticks(np.arange(1, 15, 1))
     plt.grid(True)
-    plt.plot(z, Hdi_, '-ro')
+    plt.plot(z, Hdi_, '-ob')
     plt.title('Рисунок 7. Распределение теплоперепадов с учетом невязки по проточной части')
     st.pyplot(fig)
