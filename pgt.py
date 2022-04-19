@@ -230,6 +230,8 @@ if add_selectbox == "Задание 1":
         s_1 = point_1.s
         T_1 = point_1.T
         v_1 = point_1.v
+        p_1 = point_1.P
+        st.write(p_1)
         p_pp_ = p_pp - 0.03*p_pp
         point_pp_ = IAPWS97(P=p_pp_*10**(-6),h = h_pp)
         s_pp_ = point_pp_.s
@@ -834,17 +836,20 @@ if add_selectbox == "Задание 3":
     st.write("**Исходные данные:** ")
 
 
-    drs = st.number_input('Введите диаметр регулирующей ступени, м', value=1.1)
-    P0 = st.number_input('Введите давление полного торможения перед нерегулируемой ступенью P0, МПа', value=24.2)
-    h0 = st.number_input('Введите энтальпия полного торможения перед первой нерегулируемой ступенью h0, кДж/кг', value=2500)
-    G0 = st.number_input('Введите расход пара в первую нерегулируемую ступень, кг/с', value=656.17)
-    etaoi = st.number_input('Введите внутренний КПД ЦВД ', value=0.799, max_value=1.000)
-    Z = st.number_input('Введите количество ступеней ЦВД ', value=8)
-    Pz = st.number_input('Введите давление за ЦВД, МПа ', value=4.4)
-
+    drs = st.number_input('drs, м', value=0.9, max_value=1.1)
+    st.caption('p0 = 12.445 МПа')
+    st.caption('h0 = 3465.095 кДж/кг')
+    st.caption('G0 = 176.3289 кг/с')
+    st.caption('pz = 12.445 МПа')
+    st.caption('Количество ступеней ЦВД = 7')
     
-    P0 = 24.2
-    h0 = 12
+   
+    P0 = 12.445
+    h0 = 3465.095
+    G0 = 176.3289
+    etaoi = 0.88
+    Pz = 
+    Z = 7
     deltaD = 0.26 #m
     n = 50 # Гц
     rho_s = 0.05
@@ -853,23 +858,6 @@ if add_selectbox == "Задание 3":
     mu1 = 0.97
     delta = 0.003
     tetta = 20
-
-    st.write("""# """)
-    st.write(" *Дано:* ")
-    st.write(""" P0 = """ + str(P0) + """ МПа""")
-    st.write(""" h0 = """ + str(h0) + """ кДж/кг""")
-    st.write(""" dрс = """ + str(drs) + """ м """)
-    st.write(""" Z = """ + str(Z) + """ шт """)
-    st.write(""" G0 = """ + str(G0) + """ кг/с """)
-    st.write(""" n = """ + str(n) + """ Гц """)
-    st.write(""" eta_oi = """ + str(etaoi) + """ """)
-    st.write(""" Pz = """ + str(Pz) + """ МПа """)
-
-
-
-
-    st.write(" ")
-    st.write("**Решение:** ")
 
 
     D1 = drs - deltaD
@@ -951,7 +939,6 @@ if add_selectbox == "Задание 3":
         a += 1
 
 
-    
     N_=[]
     di_=[]
     li_=[]
@@ -980,21 +967,18 @@ if add_selectbox == "Задание 3":
     Hi_ = [float(x) for x in Hi_]
     Hdi_ = [float(x) for x in Hdi_]
 
-    ## Таблица
     table=pd.DataFrame( {"№ ступени": (N_),
-                            "di, м": (di_),
-                            "li, м": (li_),
-                            "θi ": (tettai_),
-                            "ρi ": (rhoi_),
-                            "Xi ": (Xi_),
-                            "Hi, кДж/кг": (Hi_),
-                            "Hi + Δ, кДж/кг": (Hdi_)
+                            "d_i, м": (di_),
+                            "l_i, м": (li_),
+                            "theta_i": (tettai_),
+                            "rho_i": (rhoi_),
+                            "X_i": (Xi_),
+                            "H_i, кДж/кг": (Hi_),
+                            "H_di, кДж/кг": (Hdi_)
                             }
                          )
-
     st.dataframe(table)
 
-    ## Графики
     z =[]
     for a in range(1, Z+1):
         z.append(a)
