@@ -844,7 +844,7 @@ if add_selectbox == "Задание 3":
 
     
     P0 = 24.2
-    h0 = 
+    h0 = 12
     deltaD = 0.26 #m
     n = 50 # Гц
     rho_s = 0.05
