@@ -363,8 +363,7 @@ if add_selectbox == "Задание 1":
     plt.grid(True)
     st.pyplot(fig)
     
-    st.write (p_0_d*1e-6)
-    st.write (point_0.h)
+    
 
 
 
@@ -1004,7 +1003,7 @@ if add_selectbox == "Задание 3":
     st.write("#")
     fig = plt.figure(figsize=(10, 5))
     ax = fig.gca()
-    ax.set_xticks(np.arange(1, 15, 1))
+    ax.set_xticks(np.arange(1, 30, 1))
     plt.grid(True)
     plt.plot(z, tettai_, '-ob')
     plt.title('Рисунок 3. Распределение обратной веерности по проточной части')
