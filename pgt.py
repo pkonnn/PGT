@@ -848,7 +848,7 @@ if add_selectbox == "Задание 3":
     h0 = 3465.095
     G0 = 176.3289
     etaoi = 0.88
-    Pz = 
+    Pz = 10
     Z = 7
     deltaD = 0.26 #m
     n = 50 # Гц
