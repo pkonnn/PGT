@@ -370,8 +370,8 @@ if add_selectbox == "Задание 1":
 
 if add_selectbox == "Задание 2":
 
-    
-    st.subheader('_Расчет регулирующей ступени_')
+    st.write('_Расчет регулирующей ступени_')
+   
 
 
     def iso_bar(wsp_point, min_s=-0.1, max_s=0.11, step_s=0.011, color = 'r'):
