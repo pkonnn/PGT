@@ -1054,10 +1054,10 @@ if add_selectbox == "Задание 3":
 if add_selectbox == "Задание 4":
         st.title('Проектирование трехмерной модели ЦВД паровой турбины')
         from PIL import Image
-        image1 = Image.open('photo2.png')
-        st.image(image1, caption='Чертеж')
-        image2 = Image.open('photo1.png')
-        st.image(image2, caption='3-D модель')
+        image1 = Image.open('photo1.png')
+        st.image(image1, caption='Чертеж модели')
+        image2 = Image.open('photo2.png')
+        st.image(image2, caption='Трехмерная модель')
     
 if add_selectbox == "Задание 5":
     st.title('Определение массы ротора ЦВД')
